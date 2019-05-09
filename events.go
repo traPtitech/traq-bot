@@ -13,6 +13,8 @@ const (
 	DirectMessageCreated = "DIRECT_MESSAGE_CREATED"
 	// ChannelCreated CHANNEL_CREATEDイベント
 	ChannelCreated = "CHANNEL_CREATED"
+	// ChannelTopicChanged CHANNEL_TOPIC_CHANGEDイベント
+	ChannelTopicChanged = "CHANNEL_TOPIC_CHANGED"
 	// UserCreated USER_CREATEDイベント
 	UserCreated = "USER_CREATED"
 )

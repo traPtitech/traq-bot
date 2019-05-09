@@ -76,6 +76,8 @@ func (bs *BotServer) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 		payload = &DirectMessageCreatedPayload{}
 	case ChannelCreated:
 		payload = &ChannelCreatedPayload{}
+	case ChannelTopicChanged:
+		payload = &ChannelTopicChangedPayload{}
 	case UserCreated:
 		payload = &UserCreatedPayload{}
 	default:

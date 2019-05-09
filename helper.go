@@ -41,6 +41,11 @@ func (hs EventHandlers) SetChannelCreatedHandler(h func(payload *ChannelCreatedP
 	hs.SetHandler(ChannelCreated, func(event string, payload interface{}) { h(payload.(*ChannelCreatedPayload)) })
 }
 
+// SetChannelTopicChangedHandler イベントハンドラをセットします
+func (hs EventHandlers) SetChannelTopicChangedHandler(h func(payload *ChannelTopicChangedPayload)) {
+	hs.SetHandler(ChannelTopicChanged, func(event string, payload interface{}) { h(payload.(*ChannelTopicChangedPayload)) })
+}
+
 // SetUserCreatedHandler イベントハンドラをセットします
 func (hs EventHandlers) SetUserCreatedHandler(h func(payload *UserCreatedPayload)) {
 	hs.SetHandler(UserCreated, func(event string, payload interface{}) { h(payload.(*UserCreatedPayload)) })

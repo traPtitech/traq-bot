@@ -40,6 +40,17 @@ type ChannelCreatedPayload struct {
 	Channel ChannelPayload `json:"channel"`
 }
 
+// ChannelTopicChangedPayload CHANNEL_TOPIC_CHANGEDイベントペイロード
+type ChannelTopicChangedPayload struct {
+	BasePayload
+	// Channel 変更されたチャンネル
+	Channel ChannelPayload `json:"channel"`
+	// Topic 変更後のトピック
+	Topic string `json:"topic"`
+	// Updater トピック更新者
+	Updater UserPayload `json:"updater"`
+}
+
 // UserCreatedPayload USER_CREATEDイベントペイロード
 type UserCreatedPayload struct {
 	BasePayload
