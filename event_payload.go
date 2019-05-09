@@ -1,0 +1,48 @@
+package traqbot
+
+// PingPayload PINGイベントペイロード
+type PingPayload struct {
+	BasePayload
+}
+
+// JoinedPayload JOINEDイベントペイロード
+type JoinedPayload struct {
+	BasePayload
+	// Channel 参加したチャンネル
+	Channel ChannelPayload `json:"channel"`
+}
+
+// LeftPayload LEFTイベントペイロード
+type LeftPayload struct {
+	BasePayload
+	// Channel 退出したチャンネル
+	Channel ChannelPayload `json:"channel"`
+}
+
+// MessageCreatedPayload MESSAGE_CREATEDイベントペイロード
+type MessageCreatedPayload struct {
+	BasePayload
+	// Message 投稿されたメッセージ
+	Message MessagePayload `json:"message"`
+}
+
+// DirectMessageCreatedPayload DIRECT_MESSAGE_CREATEDイベントペイロード
+type DirectMessageCreatedPayload struct {
+	BasePayload
+	// Message 投稿されたメッセージ
+	Message MessagePayload `json:"message"`
+}
+
+// ChannelCreatedPayload CHANNEL_CREATEDイベントペイロード
+type ChannelCreatedPayload struct {
+	BasePayload
+	// Channel 作成されたチャンネル
+	Channel ChannelPayload `json:"channel"`
+}
+
+// UserCreatedPayload USER_CREATEDイベントペイロード
+type UserCreatedPayload struct {
+	BasePayload
+	// User 作成されたユーザー
+	User UserPayload `json:"user"`
+}
