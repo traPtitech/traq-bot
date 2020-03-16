@@ -80,6 +80,8 @@ func (bs *BotServer) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 		payload = &ChannelTopicChangedPayload{}
 	case UserCreated:
 		payload = &UserCreatedPayload{}
+	case StampCreated:
+		payload = &StampCreatedPayload{}
 	default:
 		rw.WriteHeader(http.StatusNotImplemented)
 		return

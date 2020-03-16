@@ -57,3 +57,12 @@ type UserCreatedPayload struct {
 	// User 作成されたユーザー
 	User UserPayload `json:"user"`
 }
+
+// StampCreatedPayload STAMP_CREATEDイベントペイロード
+type StampCreatedPayload struct {
+	BasePayload
+	ID      string      `json:"id"`
+	Name    string      `json:"name"`
+	FileID  string      `json:"fileId"`
+	Creator UserPayload `json:"creator"`
+}

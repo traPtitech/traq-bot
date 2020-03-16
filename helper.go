@@ -50,3 +50,7 @@ func (hs EventHandlers) SetChannelTopicChangedHandler(h func(payload *ChannelTop
 func (hs EventHandlers) SetUserCreatedHandler(h func(payload *UserCreatedPayload)) {
 	hs.SetHandler(UserCreated, func(event string, payload interface{}) { h(payload.(*UserCreatedPayload)) })
 }
+
+func (hs EventHandlers) SetStampCreatedHandler(h func(payload *StampCreatedPayload)) {
+	hs.SetHandler(StampCreated, func(event string, payload interface{}) { h(payload.(*StampCreatedPayload)) })
+}

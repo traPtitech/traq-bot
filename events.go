@@ -17,4 +17,6 @@ const (
 	ChannelTopicChanged = "CHANNEL_TOPIC_CHANGED"
 	// UserCreated USER_CREATEDイベント
 	UserCreated = "USER_CREATED"
+	// StampCreated STAMP_CREATEDイベント
+	StampCreated = "STAMP_CREATED"
 )
