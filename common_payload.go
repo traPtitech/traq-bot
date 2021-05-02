@@ -71,3 +71,17 @@ type EmbeddedInfoPayload struct {
 	// ID 各種ID(タイプによる)
 	ID string `json:"id"`
 }
+
+// MessageStampPayload メッセージスタンプ情報
+type MessageStampPayload struct {
+	// StampID スタンプUUID
+	StampID string `json:"stampId"`
+	// UserID スタンプを押したユーザーUUID
+	UserID string `json:"userId"`
+	// Count このユーザーによって押されたこのスタンプの数
+	Count int `json:"count"`
+	// CreatedAt 最初にスタンプが押された日時
+	CreatedAt time.Time `json:"createdAt"`
+	// UpdatedAt 最後にスタンプが押された日時
+	UpdatedAt time.Time `json:"updatedAt"`
+}
