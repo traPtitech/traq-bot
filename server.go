@@ -72,8 +72,18 @@ func (bs *BotServer) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 		payload = &LeftPayload{}
 	case MessageCreated:
 		payload = &MessageCreatedPayload{}
+	case MessageUpdated:
+		payload = &MessageUpdatedPayload{}
+	case MessageDeleted:
+		payload = &MessageDeletedPayload{}
+	case BotMessageStampsUpdated:
+		payload = &BotMessageStampsUpdatedPayload{}
 	case DirectMessageCreated:
 		payload = &DirectMessageCreatedPayload{}
+	case DirectMessageUpdated:
+		payload = &DirectMessageUpdatedPayload{}
+	case DirectMessageDeleted:
+		payload = &DirectMessageDeletedPayload{}
 	case ChannelCreated:
 		payload = &ChannelCreatedPayload{}
 	case ChannelTopicChanged:
@@ -82,6 +92,10 @@ func (bs *BotServer) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 		payload = &UserCreatedPayload{}
 	case StampCreated:
 		payload = &StampCreatedPayload{}
+	case TagAdded:
+		payload = &TagAddedPayload{}
+	case TagRemoved:
+		payload = &TagRemovedPayload{}
 	default:
 		rw.WriteHeader(http.StatusNotImplemented)
 		return
