@@ -1,6 +1,8 @@
 package traqbot
 
-import "time"
+import (
+	"time"
+)
 
 // BasePayload ベースペイロード
 type BasePayload struct {
@@ -83,5 +85,45 @@ type MessageStampPayload struct {
 	// CreatedAt 最初にスタンプが押された日時
 	CreatedAt time.Time `json:"createdAt"`
 	// UpdatedAt 最後にスタンプが押された日時
+	UpdatedAt time.Time `json:"updatedAt"`
+}
+
+// GroupMemberPayload グループメンバー情報ペイロード
+type GroupMemberPayload struct {
+	// GroupID グループUUID
+	GroupID string `json:"groupId"`
+	// UserID ユーザーUUID
+	UserID string `json:"userId"`
+}
+
+// UserGroupAdminPayload グループ管理者情報ペイロード
+type UserGroupAdminPayload GroupMemberPayload
+
+// UserGroupMemberPayload グループメンバー(のより詳細な)情報ペイロード
+type UserGroupMemberPayload struct {
+	GroupMemberPayload
+	// Role メンバーの役割
+	Role string `json:"role"`
+}
+
+// UserGroupPayload グループ情報ペイロード
+type UserGroupPayload struct {
+	// ID グループUUID
+	ID string `json:"id"`
+	// Name グループ名
+	Name string `json:"name"`
+	// Description グループの説明
+	Description string `json:"description"`
+	// Type グループの種類
+	Type string `json:"type"`
+	// Icon グループアイコンのファイルUUID
+	Icon string `json:"icon"`
+	// Admins グループ管理者の配列
+	Admins []*UserGroupAdminPayload `json:"admins"`
+	// Members グループメンバーの配列
+	Members []*UserGroupMemberPayload `json:"members"`
+	// CreatedAt グループ作成日時
+	CreatedAt time.Time `json:"createdAt"`
+	// UpdatedAt グループ更新日時
 	UpdatedAt time.Time `json:"updatedAt"`
 }
